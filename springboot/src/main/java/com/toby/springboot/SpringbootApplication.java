@@ -1,9 +1,9 @@
 package com.toby.springboot;
 
-import com.toby.springboot.annotation.MySpringBootAnnotation;
+import com.toby.config.annotation.MySpringBootApplication;
 import org.springframework.boot.SpringApplication;
 
-@MySpringBootAnnotation
+@MySpringBootApplication
 public class SpringbootApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringbootApplication.class, args);
