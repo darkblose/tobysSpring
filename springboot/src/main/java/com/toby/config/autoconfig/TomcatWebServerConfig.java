@@ -1,11 +1,11 @@
 package com.toby.config.autoconfig;
 
+import com.toby.config.annotation.MyAutoConfiguration;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
+@MyAutoConfiguration
 public class TomcatWebServerConfig {
     @Bean
     public ServletWebServerFactory servletWebServerFactory() {
