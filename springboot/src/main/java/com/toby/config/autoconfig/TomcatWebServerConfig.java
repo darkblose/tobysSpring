@@ -1,26 +1,18 @@
 package com.toby.config.autoconfig;
 
+import com.toby.config.annotation.ConditionalMyOnClass;
 import com.toby.config.annotation.MyAutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Condition;
-import org.springframework.context.annotation.ConditionContext;
-import org.springframework.context.annotation.Conditional;
-import org.springframework.core.type.AnnotatedTypeMetadata;
 
 @MyAutoConfiguration
-@Conditional(TomcatWebServerConfig.TomcatCondition.class)
+@ConditionalMyOnClass("org.apache.catalina.startup.Tomcat")
 public class TomcatWebServerConfig {
     @Bean("tomcatWebServerFactory")
+    @ConditionalOnMissingBean
     public ServletWebServerFactory servletWebServerFactory() {
         return new TomcatServletWebServerFactory();
-    }
-
-    static class TomcatCondition implements Condition {
-        @Override
-        public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-            return true;
-        }
     }
 }
