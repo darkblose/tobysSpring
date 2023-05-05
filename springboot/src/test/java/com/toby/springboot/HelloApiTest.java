@@ -8,7 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
+ 
 public class HelloApiTest {
     @Test
     public void helloApi() throws Exception {
